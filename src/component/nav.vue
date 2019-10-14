@@ -9,15 +9,15 @@
             <i>首页</i>
           </router-link>
         </li>
-        <li class="sortimg" :class="{'sortimgbg':sortbg}" @click="sortbtn()">
+        <li class="sortimg">
           <router-link to="/sort">
             <span></span>
             <i>分类</i>
           </router-link>
         </li>
         <li class="navimg">
-          <router-link to="/">
-            <img :src="navimg" alt="">
+          <router-link to="/news">
+            <img :src="this.navimg" alt="">
           </router-link>
         </li>
         <li class="shoppingimg">
@@ -42,10 +42,10 @@
   export default{
     data(){
       return {
-        "navimg": "",
-        "homebg": true,
-        "sortbg": false,
-        "mybg": false,
+        // "navimg": "",
+        // "homebg": true,
+        // "sortbg": false,
+        // "mybg": false
       }
     },
     mounted(){
@@ -57,26 +57,6 @@
       .then(function() {})
     },
     methods:{
-      homebtn(){
-        this.homebg = false
-        this.sortbg = false
-        this.mybg = false
-      },
-      sortbtn(){
-        this.sortbg = true
-        this.homebg = true
-        this.mybg = false
-      },
-      mybtn(){
-        this.mybg = true
-        this.sortbg = false
-        this.homebg = true
-      }
-    },
-    watch:{
-      "$route.path":(to,from)=>{
-        console.log(to,from)
-      }
     }
   }
 </script>
@@ -99,7 +79,7 @@
     height: 100%;
     font-size: 0.96rem;
     line-height: 1.2rem;
-    padding-top: 0.8rem
+    padding-top: 0.8rem;
   }
   .nav>ul>.navimg{
     padding: 0px;
@@ -112,31 +92,25 @@
     height: 2rem;
     display: block;
     margin: auto;
-    background: url("../assets/images/nav.png") no-repeat;
+    background:url("../assets/images/nav.png");
     background-size: 8.4rem 8.4rem;
   }
-  .nav>ul>.homeimgbg span{
-    background-position: -6rem -0.4rem !important;
-  }
   .nav>ul>.homeimg span{
-    background-position: -0.4rem -0.4rem;
+   background-position: -6rem -0.4rem;
   }
-
   .nav>ul>.sortimg span{
     background-position: -6rem -3.2rem;
   }
-  .nav>ul>.sortimgbg span{
-    background-position: -3.2rem -0.4rem !important;
-  }
-
   .nav>ul>.shoppingimg span{
     background-position: -3.2rem -3.2rem;
   }
-
   .nav>ul>.myimg span{
     background-position: -3.2rem -6rem;
   }
-  .nav>ul>.myimgbg span{
-    background-position: -0.4rem -6rem !important;
-  }
+   .router-link-exact-active{
+     color:red;
+   }
+   ul li span{
+     background-position: -0.4rem -0.4rem;
+   }
 </style>

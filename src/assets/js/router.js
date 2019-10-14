@@ -6,6 +6,7 @@ import sort from "../../component/sort.vue";
 import details from "../../component/details.vue";
 import my from "../../component/my.vue";
 import sopping from "../../component/sopping.vue";
+import news from "../../component/news.vue";
 export default new VueRouter ({
   routes: [
     {
@@ -57,6 +58,10 @@ export default new VueRouter ({
       // meta:{
       //    keepAlive:false
       
+    },
+    {
+      path: "/news",
+      component: news
     },
     {
       path:"/*",
