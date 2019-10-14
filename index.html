@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>360会员商城-家庭防火墙-IOT智慧硬件-官方正品保障</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/src/assets/images/favicon.png">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="dist/build.js">
+    </script>
+    <script>
+      (function (window, document) {
+            var getRem = function () {
+              if (document) {
+                var html = document.documentElement;
+                var hWidth = (html.getBoundingClientRect().width) * (750 / 375);
+                // console.log(hWidth)
+                html.style.fontSize = hWidth / 60 + "px";
+                // console.log(html.style.fontSize)
+              }
+            };
+            getRem();
+            window.onresize = function () {
+              getRem();
+            }
+          })(window, document)
+
+    </script>
+  </body>
+</html>
