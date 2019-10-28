@@ -201,7 +201,7 @@
         mar: true,
         show: true,
         tops: true,
-        active: false,
+        active: true,
         imgs: [],
         scrolls: [],
         menus: [],

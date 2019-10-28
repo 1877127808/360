@@ -3,21 +3,22 @@
     <router-view></router-view>
     <nav class="nav">
       <ul>
-      	<li class="homeimg" :class="{'homeimgbg':homebg}" @click="homebtn()">
-          <router-link to="/">
-            <span></span>
+      	<li class="homeimg">
+          <router-link to="/index">
+            <span class="homebg"></span>
             <i>首页</i>
           </router-link>
         </li>
         <li class="sortimg">
           <router-link to="/sort">
-            <span></span>
+            <span class="sortbg"></span>
             <i>分类</i>
           </router-link>
         </li>
         <li class="navimg">
           <router-link to="/news">
-            <img :src="this.navimg" alt="">
+            <img :src="navimg" alt="">
+            <img src="" alt="">
           </router-link>
         </li>
         <li class="shoppingimg">
@@ -26,9 +27,9 @@
             <i>购物车</i>
           </router-link>
         </li>
-        <li class="myimg" :class="{'myimgbg':mybg}" @click="mybtn()">
+        <li class="myimg">
           <router-link to="/my">
-            <span></span>
+            <span class="mybg"></span>
             <i>我的</i>
           </router-link>
         </li>
@@ -42,21 +43,24 @@
   export default{
     data(){
       return {
-        // "navimg": "",
+        "navimg": ""
         // "homebg": true,
         // "sortbg": false,
         // "mybg": false
+        // "navimg":""
       }
     },
     mounted(){
       this.$http.get("./data/myjson.json")
       .then((response) =>{
         this.navimg = response.data.navimg; //请求底部导航栏中间的图片
+        console.log(this.navimg)
       })
       .catch(function(error) {})
       .then(function() {})
     },
     methods:{
+      
     }
   }
 </script>
@@ -107,10 +111,13 @@
   .nav>ul>.myimg span{
     background-position: -3.2rem -6rem;
   }
-   .router-link-exact-active{
-     color:red;
-   }
-   ul li span{
-     background-position: -0.4rem -0.4rem;
-   }
+  .router-link-active .homebg{
+    background-position: -0.4rem -0.4rem !important;
+  }
+  .router-link-active .sortbg{
+    background-position: -3.2rem -0.4rem !important;
+  }
+  .router-link-active .mybg{
+    background-position: -0.4rem -6rem !important;
+  }
 </style>
